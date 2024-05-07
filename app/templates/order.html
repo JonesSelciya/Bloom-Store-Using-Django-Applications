@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<style>
+    .image{
+        width:50% ;
+        height: 100px;
+    }
+    #loc{
+        padding: 7px;
+        text-align: center;
+    }
+   
+    ul {
+        list-style: none;
+        }
+      .info {
+        display: inline;
+        cursor: pointer;
+        text-align: center;
+        margin-left: 45px;
+        text-decoration: none;
+    }
+   
+    .descriptions {
+            display: none;
+        }
+    li:hover{
+      border-bottom:2px solid black;
+    }
+     ul a{
+      text-decoration: none;
+    }
+
+        #description1, #description2, #description3 {
+            display: none;
+        }
+
+</style>
+<body>
+    {% extends 'base.html'%}
+
+
+    {% block content%}
+    <div class="container">
+        <div class="row" >
+
+            <div class="col-6">
+                
+            <div  >
+                <img style="width: 100%; height: 500px; margin-top: 10%;" class="img-fluid" src="{{ flower_image.url }}">
+            </div>
+
+            </div>
+
+      
+        <!-- <div class="row"> -->
+
+            <div class="col-6">
+                
+            <div class="hd" style="margin-right:2%" >
+                <h1 style=" margin-top: 5%; ">
+                  {{ flower_name }}
+                </h1>
+                <!-- <img style="width: 100%; height: 500px; margin-top: 10%;" class="img-fluid" src="/static/blo2.jpg"> -->
+            </div>
+            <hr>
+            <h4>${{ flower_price }}</h4>
+            <div class="container" >
+                <div class="row" style="border: 1px solid black; height: 50px; width: 70%; ">
+                  <div class="col-sm"  id="loc">
+                    <div class="hd" style=" background-color: rgb(242,242,242); padding: 5px;">
+                    India
+                </div>
+                  </div>
+                  <div class="col-sm" id="loc" style="border-left: 1px solid black;">
+                    <label for="pincode" id="pincodeLabel">Pincode</label>
+                    <input type="password" id="pincode" name="pincode" style="display: none;">
+                </div>
+                  <div class="col-sm" id="loc" style=" border-left: 1px solid black; ">
+                    <div class="hd" style=" background-color: rgb(242,242,242); padding: 5px;">
+                        check
+                    </div>     
+                  </div>
+                 
+                
+                  
+                </div>
+              </div>
+              <div class="add"  style="color: rgb(41,111,241); font-weight: 500;"><br>
+                <p>Saved Address<i class="fa-solid fa-location-dot" style="color:rgb(41,111,241);"></i></p>
+              </div><hr>
+          
+           
+<div>
+  <ul>
+      <li id="descriptionBtn" class="info">Description</li>
+      <li id="productInfoBtn" class="info">Product Info</li>
+      <li id="moreInfoBtn" class="info">More Info</li>
+  </ul>
+</div>
+
+<div>
+  <div id="description1">
+      Nurture your loved ones with an assortment so wholesome, it elates them - Kalanchoe flowering plant in a white ceramic planter with white stones and luxury moonlight garden candle along with a diffuser set. Simply the perfect excuse to unwind and de-stress.
+  </div>
+  <div id="description2">
+      Nurture your loved ones with an assortment so wholesome, 
+  </div>
+  <div id="description3">
+      Nurture your loved ones with an assortment
+  </div>
+</div>
+
+<div>
+  <input type="submit" value="Add to cart" class="btn btn-primary">
+</div>
+
+<script>
+  document.getElementById("descriptionBtn").addEventListener("click", function() {
+      document.getElementById("description1").style.display = "block";
+      document.getElementById("description2").style.display = "none";
+      document.getElementById("description3").style.display = "none";
+  });
+
+  document.getElementById("productInfoBtn").addEventListener("click", function() {
+      document.getElementById("description1").style.display = "none";
+      document.getElementById("description2").style.display = "block";
+      document.getElementById("description3").style.display = "none";
+  });
+
+  document.getElementById("moreInfoBtn").addEventListener("click", function() {
+      document.getElementById("description1").style.display = "none";
+      document.getElementById("description2").style.display = "none";
+      document.getElementById("description3").style.display = "block";
+  });
+
+
+
+
+   // Toggle visibility of pincode input field
+   document.getElementById("loc").addEventListener("click", function() {
+        var pincodeInput = document.getElementById("pincode");
+        if (pincodeInput.style.display === "none") {
+            pincodeInput.style.display = "block";
+            pincodeInput.focus();
+            document.getElementById("pincodeLabel").style.display = "none";
+        } else {
+            pincodeInput.style.display = "none";
+            document.getElementById("pincodeLabel").style.display = "block";
+        }
+    });
+</script>
+    {% endblock content %}
+    
+    
+    
+</body>
+</html>

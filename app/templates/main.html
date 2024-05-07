@@ -1,0 +1,117 @@
+{% extends 'base.html'%}
+
+
+{% block content%}
+<style>
+    img{
+        width: 100%;
+        height: 345px;
+    }
+    img {
+        overflow-clip-margin: content-box;
+        overflow: clip;
+        opacity: 0.9;
+    }
+    .cate{
+        width: 20%;
+        height: 50px;
+        padding: 0 6px;
+        float: left;
+        
+    }
+  
+    
+
+</style>
+
+    <div>
+        <img src="static/blo1.jpg">
+    </div><br>
+    <div class="text-center">
+
+    <h1 style="font-family: cursive;">Blooms Collections</h1>
+</div>
+  
+
+   <div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="card" style="width: 80%;" onclick="callAddbloom('Birthday')">
+                <img src="static/blo2.jpg" class="card-img-top" style="height:250px" alt="...">
+                <div class="card-body" style="background-color: rgb(255,246,233);">
+            
+                  <p class="card-text text-center" style="font-size: 18px;font-weight: 600;" >Birthday</p>
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+              </div>
+
+        </div>
+        <div class="col-4">
+            <div class="card" style="width: 80%;" onclick="callAddbloom('Anniversary')">
+                <img src="static/blo10.jpg" class="card-img-top" style="height:250px" alt="...">
+                <div class="card-body" style="background-color: rgb(255,246,233);">
+            
+                  <p class="card-text text-center" style="font-size: 18px;font-weight: 600;">Anniversary</p>
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+              </div>
+
+        </div>
+        <div class="col-4">
+            <div class="card" style="width: 80%;" onclick="callAddbloom('Romantic')">
+                <img src="static/blo9.jpg" class="card-img-top" style="height:250px" alt="...">
+                <div class="card-body" style="background-color: rgb(255,246,233);">
+            
+                  <p class="card-text text-center" style="font-size: 18px;font-weight: 600;">Romantic</p>
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+              </div>
+
+        </div>
+    </div>
+    <div class="row mt-5" >
+        <div class="col-4">
+            <div class="card" style="width: 80%;" onclick="callAddbloom('Grand Opening')">
+                <img src="static/blo5.jpg" class="card-img-top" style="height:250px" alt="...">
+                <div class="card-body" style="background-color: rgb(255,246,233);">
+            
+                  <p class="card-text text-center" style="font-size: 18px;font-weight: 600;">Grand Opening</p>
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+              </div>
+
+        </div>
+        <div class="col-4">
+            <div class="card" style="width: 80%;" onclick="callAddbloom('Condolence')">
+                <img src="static/blo6.jpg" class="card-img-top" style="height:250px" alt="...">
+                <div class="card-body" style="background-color: rgb(255,246,233);">
+            
+                  <p class="card-text text-center" style="font-size: 18px;font-weight: 600;" >Condolence</p>
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+              </div>
+
+        </div>
+        <div class="col-4">
+            <div class="card" style="width: 80%;" >
+                <img src="static/blo7.jpg" class="card-img-top" style="height:250px" alt="...">
+                <div class="card-body" style="background-color: rgb(255,246,233);">
+            
+                  <a href="#" class="btn btn-primary"><p class="card-text text-center" style="font-size: 18px;font-weight: 600;">New arrivals</p></a>
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+              </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+  function callAddbloom(name) {
+    window.location.href = '/viewbloom/' + encodeURIComponent(name);
+
+  }
+</script>
+
+
+{% endblock%}
